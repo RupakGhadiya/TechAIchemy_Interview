@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { Route, Routes } from "react-router-dom"
+import Orders from './components/Pages/Orders';
+import Notification from './components/Pages/Notification';
+import Settings from './components/Pages/Settings';
+import Help from './components/Pages/Help';
+// import Nav from './components/Home/Sidebar.jsx';
+import Sidebar from './components/Sidebars/Sidebar.js';
+import Home from './components/Pages/Home';
+import RestDetails from './components/Pages/RestDetails';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Sidebar />
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/orders' element={<Orders />} />
+        <Route path='/notifiction' element={<Notification />} />
+        <Route path='/help' element={<Help />} />
+        <Route path='/settings' element={<Settings />} />
+        <Route path='/restdetails/:id' element={<RestDetails />} />
+
+
+      </Routes>
+    </>
   );
 }
 
